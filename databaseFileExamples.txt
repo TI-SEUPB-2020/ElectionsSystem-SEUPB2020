@@ -1,0 +1,23 @@
+CREATE TABLE Candidates (
+fullname VARCHAR(100) NOT NULL PRIMARY KEY,
+degree VARCHAR(30) NOT NULL,
+votes INT UNSIGNED DEFAULT 0
+);
+
+CREATE TABLE Students (
+id INT(5) NOT NULL PRIMARY KEY,
+fullname VARCHAR(100) NOT NULL,
+degree VARCHAR(30) NOT NULL,
+voted BOOLEAN DEFAULT false
+);
+
+INSERT INTO Candidates VALUES ('Chimuelo','Admi',0);
+INSERT INTO Candidates VALUES ('Ani','Industrial',0);
+INSERT INTO Candidates VALUES ('Drago','DTI',0);
+
+INSERT INTO Students VALUES (12345, 'Nombre fulano', 'carrera', false);
+
+SELECT fullname FROM Candidates;
+SELECT * FROM Candidates;
+
+UPDATE Candidates SET votes = 0 WHERE fullname = 'Drago';
