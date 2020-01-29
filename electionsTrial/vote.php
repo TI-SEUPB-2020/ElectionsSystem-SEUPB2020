@@ -22,9 +22,9 @@
 
   	  $conn = OpenCon();
 
-      $degree = $_GET['degree'];
+      $school = $_GET['school'];
       echo "<form method='post'>";
-      echo "<h2>Candidatos de ". $degree . " - ¡A votar! </h2>";
+      echo "<h2>Candidatos de ". $school . " - ¡A votar! </h2>";
       echo "Tu Código: <input type='number' name='code' id='code' value='";
       print $_POST["code"];
       echo "' placeholder='Ej.: 10101'>";
@@ -37,7 +37,7 @@
         $code = $_POST["code"];
 
 
-        $sql3 = "SELECT id FROM Students WHERE id = $code AND voted = 'false' AND degree = '$degree'";
+        $sql3 = "SELECT id FROM Students WHERE id = $code AND voted = 'false' AND school = '$school'";
         $result3 = $conn->query($sql3);
         //$result4 = $conn->query($sql4);
 
@@ -52,7 +52,7 @@
                 echo "It's a match! <br>";
 
 
-                $sql2 = "SELECT fullname FROM Candidates WHERE degree = '$degree'";
+                $sql2 = "SELECT fullname FROM Candidates WHERE school = '$school'";
                 $result2 = $conn->query($sql2);
 
                 $cont = 0;
