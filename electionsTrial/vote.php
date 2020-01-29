@@ -25,15 +25,17 @@
       $degree = $_GET['degree'];
       echo "<form method='post'>";
       echo "<h2>Candidatos de ". $degree . " - ¡A votar! </h2>";
-      echo "Tu Código: <input type='number' name='code' id='code' placeholder='Ej.: 10101'>";
+      echo "Tu Código: <input type='number' name='code' id='code' value='";
+      print $_POST["code"];
+      echo "' placeholder='Ej.: 10101'>";
   		//echo "Carnet: <input type='number' name='idcard' id='idcard'><br>";
 
 
       echo "<button type='submit' name='CheckBtn'>Verificar</button><br>";
 
-      $std = $_POST['code'];
       if(isset($_POST["CheckBtn"])){
         $code = $_POST["code"];
+
 
         $sql3 = "SELECT id FROM Students WHERE id = $code AND voted = 'false' AND degree = '$degree'";
         $result3 = $conn->query($sql3);
@@ -45,11 +47,11 @@
           if ($result3->num_rows > 0) {
       			// output data of each row
       			while($row = $result3->fetch_assoc()) {
-                $std = $row["id"];
+
       					echo $row["id"];
                 echo "It's a match! <br>";
 
-                echo "<form method='post' >";
+
                 $sql2 = "SELECT fullname FROM Candidates WHERE degree = '$degree'";
                 $result2 = $conn->query($sql2);
 
@@ -74,40 +76,36 @@
                 }
                 echo "</table>";
                 echo "<button type='submit' name='VoteBtn'>Votar</button><br>";
-                echo "</form>";
+
       			}
       		} else {
       			echo "0 results";
       		}
         }
-        echo "</form>";
+
       } else if (isset($_POST['VoteBtn'])){
+          $std0 = $_POST["code"];
+          $std = (int)$std0;
         if(!isset($_POST['candidate'])) {
           echo "Selecciona una opción.";
           echo $std;
         } else {
           $cand = $_POST['candidate'];
           $sqlvote = "UPDATE Candidates SET votes = votes + 1 WHERE fullname = '$cand'";
-          $sqlvoteCheck = "UPDATE Students SET voted = true WHERE id = $std";
+          $sqlvoteCheck = "UPDATE Students SET voted = 1 WHERE id = $std";
 
           if ($conn->query($sqlvote) === TRUE) {
             echo "New record created successfully";
-            echo "Votaste por " . $cand . " codigo " . $std;
+            if($conn->query($sqlvoteCheck) === TRUE){
+              echo "Votaste por " . $cand . " codigo " . $std;
+            }
           } else {
             echo "Error: " . $sqlvote . "<br>" . $conn->error;
           }
         }
 
       }
-
-
-
-
-
-
-
-
-
+      echo "</form>";
 
       CloseCon($conn);
      ?>
