@@ -30,7 +30,7 @@
 			<form method="get" action="/ElectionsTrial/vote.php">
 				<table style="width:100%;" class="table">
 					<?php
-					$sql = "SELECT degree FROM Candidates GROUP BY degree";
+					$sql = "SELECT school FROM Candidates GROUP BY school";
 
 					$result = $conn->query($sql);
 
@@ -40,10 +40,10 @@
 						// output data of each row
 						while($row = $result->fetch_assoc()) {
 							if ($cont == 0){
-								echo "<tr><th> <button type='submit' name='degree' value='". $row["degree"]."'>". $row["degree"]."</button></th>";
+								echo "<tr><th> <button type='submit' name='school' value='". $row["school"]."'>". $row["school"]."</button></th>";
 								$cont = 1;
 							} else if ($cont == 1){
-								echo "<th> <button type='submit' name='degree' value='". $row["degree"]."'>". $row["degree"]."</button></th></tr>";
+								echo "<th> <button type='submit' name='school' value='". $row["school"]."'>". $row["school"]."</button></th></tr>";
 								$cont = 0;
 							}
 						}
