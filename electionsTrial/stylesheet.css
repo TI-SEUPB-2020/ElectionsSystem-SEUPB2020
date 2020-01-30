@@ -2,13 +2,77 @@
   box-sizing: border-box;
 }
 
-.table button {
-  background-color:#e5e5e5;
-  padding:8px;
-  margin-top:7px;
-  display:block;
-  width:100%;
-  color:black;
+html {
+  background-image: url(/electionsTrial/images/bg01.jpg);
+  background-size: cover;
+}
+
+body {
+  font-family:Verdana;
+}
+
+.button {
+  background-color: #ffff66; /* Green */
+  border-radius: 12px;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  width: 90%;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: #993366;
+  color: white;
+  border: 2px solid white;
+}
+
+.button1:hover {
+  background-color: #ffff66;
+  color: black;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+.buttonVote {
+  background-color: #ffff66; /* Green */
+  border-radius: 12px;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.buttonVote1 {
+  background-color: #993366;
+  color: white;
+  border: 2px solid white;
+}
+
+.buttonVote1:hover {
+  background-color: #ffff66;
+  color: black;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
+
+input[type=number] {
+  padding: 12px 20px;
+  margin: 8px 0;
+  border: 2px solid #ffff66;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
 .table {
@@ -28,20 +92,14 @@
 .main {
   float:left;
   width:60%;
-  padding:0 20px;
-}
-
-.columns {
-  background-color:#e5e5e5;
-  float:left;
-  width:20%;
+  color: white;
   padding:15px;
   margin-top:7px;
-  text-align:center;
+  text-align: center;
 }
 
 .footer{
-  background-color:#e5e5e5;
+  background-color: black;
   text-align:center;
   padding:10px;
   margin-top:7px;
@@ -49,11 +107,48 @@
   width: 100%;
   bottom:0;
   left: 0;
+  color: white;
+}
+
+.col1 {
+  background-color:#4d004d;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
+  color: white;
+}
+
+.col2{
+  background-color:#4d004d;
+  float:left;
+  width:20%;
+  padding:15px;
+  margin-top:7px;
+  text-align:center;
 }
 
 @media only screen and (max-width:800px) {
   /* For mobile phones: */
-  .menu, .main, .right {
+  .menu, .main {
     width:100%;
+  }
+
+  .col1{
+    height: 90px;;
+    width: 100%;
+    font-size: 12px;
+    padding: 0;
+    margin-top:0;
+  }
+
+  .col2{
+    width:100%;
+    background-color:transparent;
+  }
+
+  .col2Vote{
+    height: 50%;
   }
 }
