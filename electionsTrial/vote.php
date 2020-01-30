@@ -10,36 +10,50 @@
 </div>
 
 <div style="overflow:auto">
-  <div class="columns">
-    <button onclick="window.location.href = '/electionsTrial/indexmenu.php';">Volver a Elegir Carrera</button>
-    <h2>About</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+  <div class="col1" style="padding-top: 25px;">
+    <button onclick="window.location.href = '/electionsTrial/indexmenu.php';" class="buttonVote buttonVote1">Volver a Elegir Carrera</button>
   </div>
 
   <div class="main">
+
     <?php
       include 'db_connection.php';
 
   	  $conn = OpenCon();
 
       $school = $_GET['school'];
+
+      switch ($school) {
+        case "DTI":
+          $validDegrees = array("Ingenieria Electromecanica","Ingenieria de Sistemas Computacionales","Ingenieria de Sistemas Electronicos y de Telecomunicaciones");
+          $degree = join("','", $validDegrees);
+          break;
+        case "MEE":
+          $validDegrees = array();
+          break;
+        case "EIE":
+          $validDegrees = array();
+          break;
+        default:
+          echo "Your school is not valid!";
+      }
+
       echo "<form method='post'>";
       echo "<h2>Candidatos de ". $school . " - ¡A votar! </h2>";
       echo "Tu Código: <input type='number' name='code' id='code' value='";
       print $_POST["code"];
       echo "' placeholder='Ej.: 10101'>";
-  		//echo "Carnet: <input type='number' name='idcard' id='idcard'><br>";
 
-
-      echo "<button type='submit' name='CheckBtn'>Verificar</button><br>";
+      echo " <button type='submit' name='CheckBtn' class='buttonVote buttonVote1'>Verificar</button><br>";
 
       if(isset($_POST["CheckBtn"])){
         $code = $_POST["code"];
 
-
-        $sql3 = "SELECT id FROM Students WHERE id = $code AND voted = 'false' AND school = '$school'";
+        $sql3 = "SELECT code FROM Students WHERE code = $code AND voted = 'false' AND degree IN ('$degree')";
         $result3 = $conn->query($sql3);
-        //$result4 = $conn->query($sql4);
+
+        $sql4 = "SELECT fullname FROM Students WHERE code = $code AND voted = 'false' AND degree IN ('$degree')";
+        $result4 = $conn->query($sql4);
 
         if ($result3 == null) {
           echo "Por favor introduzca su codigo";
@@ -47,10 +61,13 @@
           if ($result3->num_rows > 0) {
       			// output data of each row
       			while($row = $result3->fetch_assoc()) {
-
-      					echo $row["id"];
-                echo "It's a match! <br>";
-
+              echo "Habilitado para Votar <br>";
+              echo "Código: " . $row["code"] . "<br>";
+              if ($result4->num_rows > 0){
+                while($row = $result4->fetch_assoc()){
+                  echo "Nombre: " . $row["fullname"];
+                }
+              }
 
                 $sql2 = "SELECT fullname FROM Candidates WHERE school = '$school'";
                 $result2 = $conn->query($sql2);
@@ -68,15 +85,12 @@
                       echo "<th><input type='radio' name='candidate' value='" . $row["fullname"] . "'> " . $row["fullname"] . "</th></tr>";
                       $cont = 0;
                     }
-
                   }
-
                 } else {
                   echo "0 results";
                 }
                 echo "</table>";
-                echo "<button type='submit' name='VoteBtn'>Votar</button><br>";
-
+                echo "<button type='submit' name='VoteBtn' class='buttonVote buttonVote1'>Votar</button><br>";
       			}
       		} else {
       			echo "0 results";
@@ -92,7 +106,7 @@
         } else {
           $cand = $_POST['candidate'];
           $sqlvote = "UPDATE Candidates SET votes = votes + 1 WHERE fullname = '$cand'";
-          $sqlvoteCheck = "UPDATE Students SET voted = 1 WHERE id = $std";
+          $sqlvoteCheck = "UPDATE Students SET voted = 1 WHERE code = $std";
 
           if ($conn->query($sqlvote) === TRUE) {
             echo "New record created successfully";
@@ -109,16 +123,10 @@
 
       CloseCon($conn);
      ?>
-
-
-
-
-
   </div>
 
-  <div class="columns">
-    <h2>About</h2>
-    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+  <div class="col2 col2Vote">
+    <img src="/electionsTrial/images/icons01.png" alt="Girl in a jacket" height="200px" width="200px">
   </div>
 </div>
 
