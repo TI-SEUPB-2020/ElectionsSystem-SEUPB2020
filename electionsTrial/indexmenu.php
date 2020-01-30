@@ -4,7 +4,7 @@
 	<link rel="stylesheet" href="stylesheet.css">
 	<title>Menú Principal - Carreras</title>
 </head>
-<body style="font-family:Verdana;color:#aaaaaa;">
+<body>
 	<?php
 	include 'db_connection.php';
 
@@ -15,17 +15,17 @@
 	?>
 	<body style="font-family:Verdana;color:#aaaaaa;">
 	  <div style="background-color:#e5e5e5;padding:15px;text-align:center;">
-	  <h1>Elecciones de Capitán 2020 - SEUPB 2020</h1>
+	  <h1>Elecciones de Capitán 2020<br>SEUPB 2020</h1>
 	</div>
 
 	<div style="overflow:auto">
-		<div class="columns">
-	    <h2>About</h2>
-	    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+		<div class="col1">
+	    <h2>Rumbo al UPB Match 2020</h2>
+	    <p>El primer paso para apoyar a la camiseta y darlo todo por tu carrera</p>
 	  </div>
 
 	  <div class="main">
-	    <h2>Selecciona tu carrera</h2>
+	    <h2>Selecciona tu Carrera/Escuela</h2>
 
 			<form method="get" action="/ElectionsTrial/vote.php">
 				<table style="width:100%;" class="table">
@@ -40,11 +40,11 @@
 						// output data of each row
 						while($row = $result->fetch_assoc()) {
 							if ($cont == 0){
-								echo "<tr><th> <button type='submit' name='school' value='". $row["school"]."'>". $row["school"]."</button></th>";
 								$cont = 1;
+								echo "<tr><th> <button type='submit' name='school' value='". $row["school"]."' class='button button1'>". $row["school"]."</button></th>";
 							} else if ($cont == 1){
-								echo "<th> <button type='submit' name='school' value='". $row["school"]."'>". $row["school"]."</button></th></tr>";
 								$cont = 0;
+								echo "<th> <button type='submit' name='school' value='". $row["school"]."' class='button button1'>". $row["school"]."</button></th></tr>";
 							}
 						}
 					} else {
@@ -58,10 +58,15 @@
 
 	  </div>
 
-	  <div class="columns">
-	    <h2>About</h2>
-	    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-
+	  <div class="col2">
+	    <img src="/electionsTrial/images/icons01.png" alt="Icon">
+			<img src="/electionsTrial/images/icons01.png" alt="Icon">
+			<img src="/electionsTrial/images/icons01.png" alt="Icon">
+			<img src="/electionsTrial/images/icons01.png" alt="Icon">
+			<img src="/electionsTrial/images/icons01.png" alt="Icon">
+			<img src="/electionsTrial/images/icons01.png" alt="Icon">
+			<img src="/electionsTrial/images/icons01.png" alt="Icon">
+			<br><br><br>
 	  </div>
 	</div>
 
