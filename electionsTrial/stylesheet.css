@@ -3,6 +3,7 @@
 }
 
 html {
+  background-color: black;
   background-image: url(/electionsTrial/images/bg01.jpg);
   background-size: cover;
 }
@@ -12,7 +13,7 @@ body {
 }
 
 .button {
-  background-color: #ffff66; /* Green */
+  background-color: #000000;
   border-radius: 12px;
   border: none;
   color: white;

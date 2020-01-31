@@ -25,13 +25,33 @@
 
       switch ($school) {
         case "DTI":
-          $validDegrees = array("Ingenieria Electromecanica","Ingenieria de Sistemas Computacionales","Ingenieria de Sistemas Electronicos y de Telecomunicaciones");
-          $degree = join("','", $validDegrees);
+          $validDegrees = array();
           break;
         case "MEE":
           $validDegrees = array();
           break;
         case "EIE":
+          $validDegrees = array();
+          break;
+        case "ADMI":
+          $validDegrees = array();
+          break;
+        case "COMERCIAL":
+          $validDegrees = array();
+          break;
+        case "COMUNICACIÓN":
+          $validDegrees = array();
+          break;
+        case "CSJ":
+          $validDegrees = array();
+          break;
+        case "DISEÑO":
+          $validDegrees = array();
+          break;
+        case "FINANCIERA":
+          $validDegrees = array();
+          break;
+        case "MARKETING":
           $validDegrees = array();
           break;
         default:
@@ -49,10 +69,10 @@
       if(isset($_POST["CheckBtn"])){
         $code = $_POST["code"];
 
-        $sql3 = "SELECT code FROM Students WHERE code = $code AND voted = 'false' AND degree IN ('$degree')";
+        $sql3 = "SELECT code FROM Students WHERE code = $code AND voted = '0'";
         $result3 = $conn->query($sql3);
 
-        $sql4 = "SELECT fullname FROM Students WHERE code = $code AND voted = 'false' AND degree IN ('$degree')";
+        $sql4 = "SELECT fullname FROM Students WHERE code = $code AND voted = '0'";
         $result4 = $conn->query($sql4);
 
         if ($result3 == null) {
