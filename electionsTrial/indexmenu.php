@@ -43,10 +43,10 @@
 								$cont = 1;
 								/*echo "<tr><th> <button type='submit' name='school' value='". $row["school"]."' class='button button1'>". $row["school"]."</button></th>";
 								*/
-								echo "<th><tr><button type='submit' name='school' value='". $row["school"]."' class='button button1'><image src='/images/". $row["school"].".png' width='256' height='256'>". $row["school"]."</input></th>";
+								echo "<th><tr><button type='submit' name='school' value='". $row["school"]."' class='button button1'><image src='/images/". $row["school"].".png' width='256' height='256'><font size='6'>". $row["school"]."</font></input></th>";
 							} else if ($cont == 1){
 								$cont = 0;
-								echo "<th><tr><button type='submit' name='school' value='". $row["school"]."' class='button button1'><image src='/images/". $row["school"].".png' width='256' height='256'>". $row["school"]."</input></th>";
+								echo "<th><tr><button type='submit' name='school' value='". $row["school"]."' class='button button1'><image src='/images/". $row["school"].".png' width='256' height='256'><font size='6'>". $row["school"]."</font></input></th>";
 							}
 						}
 					} else {
