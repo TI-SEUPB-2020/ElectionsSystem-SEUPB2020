@@ -86,6 +86,8 @@
               if ($result4->num_rows > 0){
                 while($row = $result4->fetch_assoc()){
                   echo "Nombre: " . $row["fullname"];
+		  echo "<br><br><br>";
+                  echo "<h2>CANDIDATOS:<h2> <br>";
                 }
               }
 
@@ -99,17 +101,17 @@
                   echo "<table class='table'>";
                   while($row = $result2->fetch_assoc()) {
                     if ($cont == 0){
-                      echo "<tr><th><input type='radio' name='candidate' value='" . $row["fullname"] . "'> " . $row["fullname"] . "</th>";
+                      echo "<tr><th><input type='radio' class='radio' name='candidate' value='" . $row["fullname"] . "'> " . $row["fullname"] . "</th>";
                       $cont = 1;
                     } else if ($cont == 1){
-                      echo "<th><input type='radio' name='candidate' value='" . $row["fullname"] . "'> " . $row["fullname"] . "</th></tr>";
+                      echo "<th><input type='radio' class='radio' name='candidate' value='" . $row["fullname"] . "'> " . $row["fullname"] . "</th></tr>";
                       $cont = 0;
                     }
                   }
                 } else {
                   echo "0 results";
                 }
-                echo "</table>";
+                echo "</table><br><br>";
                 echo "<button type='submit' name='VoteBtn' class='buttonVote buttonVote1'>Votar</button><br>";
       			}
       		} else {
