@@ -3,7 +3,7 @@
 }
 
 html {
-  background-image: url("/ElectionsTrial/images/bg02.jpeg");
+  background-image: url("./images/bg02.jpeg");
   background-size: contain;
 }
 
@@ -155,6 +155,8 @@ input[type=number] {
   margin-top:7px;
   text-align:center;
 }
+
+/* TODO css for all devices (responsive) */
 
 @media only screen and (max-width:800px) {
   /* For mobile phones: */

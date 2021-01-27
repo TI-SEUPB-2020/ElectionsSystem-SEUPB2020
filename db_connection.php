@@ -1,22 +1,17 @@
 <?php
 
-function OpenCon()
- {
- $dbhost = "localhost";
- $dbuser = "root";
- $dbpass = "upb1456fenti";
- $db = "elections_upb";
+function OpenCon() {
+	$dbhost = "localhost";
+	$dbuser = "root";
+	$dbpass = "";
+	$db = "mockSEUPB";
+	$conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connection failed: %s\n". $conn -> error);
+	
+	return $conn;
+}
 
-
- $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
-
-
- return $conn;
- }
-
-function CloseCon($conn)
- {
- $conn -> close();
- }
+function CloseCon($conn) {
+	$conn -> close();
+}
 
 ?>
