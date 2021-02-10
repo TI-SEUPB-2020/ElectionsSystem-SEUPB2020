@@ -6,7 +6,7 @@
 </head>
 <body style="font-family:Verdana;color:#aaaaaa;">
     <div class="header">
-        <h1>Elecciones de Capitán 2020 - SEUPB 2020</h1>
+        <h1> Elecciones de Capitanes - SEUPB 2021</h1>
     </div>
 
     <div style="overflow:auto">
@@ -166,13 +166,13 @@
         </div>
 
         <div class="col2 col2Vote">
-            <h2>Rumbo al UPB Match 2020</h2>
+            <h2>Rumbo al UPB Match 2021</h2>
             <p>El primer paso para apoyar a la camiseta y darlo todo por tu carrera</p>
         </div>
     </div>
 
     <div class="footer">
-        Secretaría de Tecnología e Innovación - ISC 2020<br>
+        Secretaría de Tecnología e Innovación - ISC 2021<br>
 		SEUPB 2021
     </div>
 
