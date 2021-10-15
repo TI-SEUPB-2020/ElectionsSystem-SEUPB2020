@@ -1,0 +1,104 @@
+@import 'animate.css';
+body{
+    background-image: url(/ElectionsSystem-SEUPB2020/images/cccc.gif), url(/ElectionsSystem-SEUPB2020/images/fondo.jpg); /*helpeo de dylan*/
+    font-family:Norwester;
+    background-size: cover;
+}
+h1 {
+  style="background-color:black;
+  color:rebeccapurple;
+  text-align:center;"
+}
+.col1 {
+  background-color:mediumyellow;
+  float: none;
+  margin-top: 3.5%;
+  margin-left: auto;
+  margin-right: auto;
+  width:50%;
+  padding:10px;
+  text-align:center;
+  border-radius: 20px;
+}
+.header {
+  color:black;
+  text-align:center;
+  top: 50%;
+  left: 50%;
+  font-family: Norwester;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.animate__animated{
+    color:black;
+    text-align:center;
+    top: 50%;
+    left: 50%;
+    font-family: Norwester;
+    font-size: 40px;
+    font-weight: bold;
+    animation: swing; 
+    animation-duration: 10s; 
+}
+
+:root {
+  --animate-duration: 10s;
+  --animate-delay: 0.01s;
+}
+
+
+
+footer{
+    display: block;
+}
+.social-menu ul {
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+.social-menu ul {
+    display: flex;
+}
+.social-menu ul li {
+    list-style: none;
+    margin: 0 5px;
+}
+.social-menu ul li .fa {
+    color: #000000;
+    font-size: 25px;
+    line-height: 50px;
+    transition: .5s;
+}
+.social-menu ul li .fa:hover {
+    color: #ffffff;
+}
+.social-menu ul li a {
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: yellow;
+    text-align: center;
+    transition: 0.5s;
+    transform: translate(0,0px);
+    box-shadow: 0px 7px 5px rgba(0, 0, 0, 0.5);
+}
+.social-menu ul li a:hover {
+    transform: rotate(0deg) skew(0deg) translate(0, -10px);
+}
+.social-menu ul li:nth-child(1) a:hover {
+    background-color: darkblue;
+}
+.social-menu ul li:nth-child(2) a:hover {
+    background-color: orangered;
+}
+.social-menu ul li:nth-child(3) a:hover {
+    background-color: green;
+}
+}
